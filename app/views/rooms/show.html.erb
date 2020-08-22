@@ -1,0 +1,27 @@
+
+<div class="room-container">
+
+  トークルームページ
+  ここで色々な処理を行う
+  <div class="current-username">
+    <%= current_user.name %>
+  </div>
+
+  <div class="partner-username">
+    <%= @user.name %>
+  </div>
+
+
+  <div id="messages">
+    <%= render @messages %>
+  </div>
+
+
+  <form>
+    <label>Say Something</label>
+    <input id="<%= @room.id %>" type="text" name="<%= current_user.id %>" data-behavior="room_speaker">
+    <input type="hidden" id="room-id" value="<%= @room.id %>">
+    <input type="hidden" id="user-id" value="<%= current_user.id %>">
+  </form>
+
+</div>

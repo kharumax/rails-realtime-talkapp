@@ -1,0 +1,12 @@
+
+<div>
+
+  <%= @user.name %>
+  <br>
+
+  <% if correct_user?(@user) %>
+    <%= link_to "編集ページ",edit_user_path(@user) %>
+  <% end %>
+
+</div>
+

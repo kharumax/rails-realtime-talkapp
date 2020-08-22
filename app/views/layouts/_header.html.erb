@@ -1,0 +1,27 @@
+<header>
+  <h1 class="headline">
+    <a href="/" class="headline-link">ChatApp</a>
+  </h1>
+  <h2>
+    <%= link_to "Users",users_path %>
+  </h2>
+  <nav class="nav-menu">
+    <ul class="nav-list">
+      <li class="nav-item">
+      </li>
+      <li class="nav-item">
+        <%= form_tag users_path,:method => "get",enforce_utf8: false  do %>
+          <%= text_field_tag :search ,"",class: "search-form-input" %>
+          <%= submit_tag "Search",class: "search-form-submit",:name => nil %>
+        <% end %>
+      </li>
+      <% if logged_in? %>
+        <li class="nav-item"><%= link_to "#{@current_user.name}",user_path(@current_user.id) %></li>
+        <li class="nav-item"><%= link_to "ログアウト",logout_path,method: :delete %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to "ログイン",login_path %></li>
+        <li class="nav-item sign-up-link"><%= link_to "新規登録",new_user_path,class: "sign-up-text" %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
